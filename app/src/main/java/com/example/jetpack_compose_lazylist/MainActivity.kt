@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -22,7 +23,27 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    LazyColumn {
+                        // Add a single item
+                        item {
+                            Text(text = "here a single item")
+                        }
+
+                        // Add 3 items
+                        items(3) { index ->
+                            Text(text = "First List items : $index")
+                        }
+
+                        // Add 2 items
+                        items(2) { index ->
+                            Text(text = "Second List Items: $index")
+                        }
+
+                        // Add another single item
+                        item {
+                            Text(text = "Footer")
+                        }
+                    }
                 }
             }
         }
