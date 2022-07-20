@@ -26,6 +26,17 @@ fun CustomLazyColumn() {
     }
 }
 
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun CustomLazyRow() {
+    LazyRow() {
+        val list = listOf(Profile("John", "Doe"), Profile("Jane", "Doe"), Profile("Jack", "Doe"))
+        items(list) { item ->
+            ProfileUI(item)
+        }
+    }
+}
+
 @Composable
 fun ProfileUI(item: Profile) {
     Column(modifier = Modifier.fillMaxWidth().border(2.dp, Color.Black).padding(16.dp)) {
